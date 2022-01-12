@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+	         git 'https://github.com/sanskrutiharsule/InsurancePartnersUsecase.git'
+            bat 'mvn clean package deploy -DskipMunitTests -DmuleDeploy -DmuleVersion=4.4.0 -Dusername=sans_ankita -Dpassword=Test@123 -DapplicationName=InsurancePartners -Denvironment=Sandbox -DbusinessGroup="IT" -DworkerType=MICRO'
+      }
+    }
+	
+	
+	 stage('Deploy') {
+      steps {
+	         git 'https://github.com/sanskrutiharsule/InsurancePartnersUsecase.git'
+            bat 'mvn clean package deploy -DskipMunitTests -DmuleDeploy -DmuleVersion=4.4.0 -Dusername=sans_ankita -Dpassword=Test@123 -DapplicationName=InsurancePartners -Denvironment=Sandbox -DbusinessGroup="IT" -DworkerType=MICRO'
+      }
+    }
+	
+	}
+	
+}
+
+
+
+
